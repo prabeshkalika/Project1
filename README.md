@@ -36,7 +36,13 @@ pip install -r requirements.txt
 ```bash
 docker network create mynetwork
 ```
+## Run Your Python Application Container
+## Run your Docker image as a container within the same Docker network. Ensure it can successfully communicate with the MongoDB container
 
+## Replace with the name of network you created earlier
+```bash
+docker run --network mynetwork -d -p 3000:3000 --name assignment1 prabeshkalika/assignment1:version1
+```
 ## Ensure your MongoDB instance is running and accessible as configured in your Python script.
 ```bash
 docker run --network mynetwork --name mongodb -d -p 27017:27017 -v my_mongo_data:/data/db mongo:latest
