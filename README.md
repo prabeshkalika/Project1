@@ -16,13 +16,6 @@ Before you begin, ensure you have met the following requirements:
 
 To avoid conflicts with other Python projects you may be working on, it's a good idea to use a virtual environment. Here's how you can set one up:
 
-**For macOS and Linux:**
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
 **For Windows:**
 
 ```cmd
@@ -37,6 +30,13 @@ Once your virtual environment is activated, install the project dependencies by 
 ```bash
 pip install -r requirements.txt
 ```
+## Create a Docker network to facilitate communication between your Python application container and a MongoDB container.
+
+## Replace with a name of your choice:
+
+docker network create mynetwork
+
+
 
 ## Running the Application
 
@@ -46,9 +46,9 @@ To start the server, run:
 python app.py
 ```
 
-Ensure your MongoDB instance is running and accessible as configured in your Python script.
+## Ensure your MongoDB instance is running and accessible as configured in your Python script.
 ```bash
-docker run --name mongodb-container -d -p 27017:27017 -v my_mongo_data:/data/db mongo:latest
+docker run --network mynetwork --name mongodb -d -p 27017:27017 -v my_mongo_data:/data/db mongo:latest
 ```
 
 
@@ -60,8 +60,7 @@ To interact with the application, you can use the following `curl` command to cr
 curl -X POST http://localhost:3000/items \
      -H "Content-Type: application/json" \
      -d '{"id": "4", "name": "maziar"}'
-```
-
+```  
 ## Contributing to the Project
 
 Contributions to enhance the project are welcome. Please fork the repository and create a pull request.
