@@ -38,8 +38,6 @@ docker network create mynetwork
 ```
 ## Run Your Python Application Container
 ## Run your Docker image as a container within the same Docker network. Ensure it can successfully communicate with the MongoDB container
-
-## Replace with the name of network you created earlier
 ```bash
 docker run --network mynetwork -d -p 3000:3000 --name assignment1 prabeshkalika/assignment1:version1
 ```
