@@ -33,10 +33,9 @@ pip install -r requirements.txt
 ## Create a Docker network to facilitate communication between your Python application container and a MongoDB container.
 
 ## Replace with a name of your choice:
-
+```bash
 docker network create mynetwork
-
-
+```
 
 ## Running the Application
 
